@@ -1,7 +1,9 @@
 import Fastify from 'fastify';
 import { createClient } from '@supabase/supabase-js';
+import cors from '@fastify/cors';
 
 const app = Fastify({ logger: true });
+await app.register(cors, { origin: true });
 
 // 🔐 Supabase (SERVICE ROLE — backend only)
 const supabase = createClient(
